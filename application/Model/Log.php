@@ -18,23 +18,56 @@ class Log extends Model
 {
     public function getAllLog()
     {
+        $sql = "SELECT log_id, log_type_id, log_detail, created_date FROM log";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        return $query->fetchAll();
     }
 
-    public function addLog()
+    public function addLog($log_type_id, $log_detail)
     {
+        $sql = "INSERT INTO log (log_type_id, log_detail) VALUES (:log_type_id, :log_detail)";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':log_type_id' => $log_type_id, ':log_detail' => $log_detail);
+
+        $query->execute($parameters);
     }
 
-    public function deleteLog()
+    public function deleteLog($log_id)
     {
+        $sql = "DELETE FROM log WHERE log_id = :log_id";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':log_id' => $log_id);
+
+        $query->execute($parameters);
     }
-    public function getLog()
+
+    public function getLog($log_id)
     {
+        $sql = "SELECT log_id, log_type_id, log_detail, created_date FROM log WHERE log_id = :log_id LIMIT 1";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':log_id' => $log_id);
+        $query->execute($parameters);
+
+        return $query->fetch();
     }
-    public function updateLog()
+
+    public function updateLog($log_id, $log_type_id, $log_detail)
     {
+        $sql = "UPDATE log SET log_type_id = :log_type_id, log_detail = :log_detail WHERE log_id = :log_id";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':log_id' => $log_id, ':log_type_id' => $log_type_id, ':log_detail' => $log_detail);
+
+        $query->execute($parameters);
     }
 
     public function getAmountOfLog()
     {
+        $sql = "SELECT COUNT(log_id) AS amount_of_log FROM log";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        return $query->fetch()->amount_of_log;
     }
 }
