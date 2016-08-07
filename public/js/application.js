@@ -1,11 +1,45 @@
+if($.type($.material) !== "undefined")
+{
 $.material.init();
-
+}
     $('a').mouseenter(function(event) {
         $(this).children('.gri').css("color","#009688");
     }).mouseleave(function(event){
         $(this).children('.gri').css("color","#C8C8C8");
     });
 
+$('#loginBtnid').click(function(){
+    $.ajax({
+        url: '/login/giris',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            email: $('[name="email"]').val(),
+            sifre: $('[name="password"]').val() 
+        },
+    })
+    .done(function(data) {
+        if(data.Result == "Hata1"){
+
+        }
+        else{
+            if(data.active == 1) {
+                console.log("active true");
+                //#4cdb73 Alert fonksiyonu ekle
+            }
+            else{
+                // Alert Aktif Değil Fonksiyonu ekle
+            }
+        }
+    })
+    .fail(function(data) {
+        console.log("error");
+    })
+    .always(function(data) {
+        console.log("complete");
+    });
+    
+});
 
 $(function() {
 

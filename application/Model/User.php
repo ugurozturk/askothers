@@ -54,6 +54,16 @@ class User extends Model
         return $query->fetch();
     }
 
+    public function getUserByMailAndPw($email, $password)
+    {
+        $sql = "SELECT user_id, user_type_id, points, username, password, email, phone, active, created_date FROM user WHERE email = :email AND password = :password LIMIT 1";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':email' => $email, 'password' => $password);
+        $query->execute($parameters);
+
+        return $query->fetch();
+    }
+
     public function updateUser($user_id, $user_type_id, $points, $username, $password, $email, $phone, $active)
     {
         $sql = "UPDATE user SET user_type_id = :user_type_id, points = :points, username = :username, password = :password, email = :email, phone = :phone, active = :active WHERE user_id = :user_id";

@@ -3,12 +3,21 @@ Projem için TODO listem:
 Acil:
 
 Kodlanacak:
-  ☐ Model yapısında tüm veritabanı entegrasyonu
   ☐ User Modelinde foreign key entegrasyonu .\Model\User.php"#bf82f4"
+  ☐ Log ekranının işlevi
+  ☐ LoginController yarım kaldı. if bloğunun içerisi doldurulacak
+  Alert Fonksiyonu ekle .\application.js"#4cdb73"
+  ✔ Log ekranının tasarımı @done (16-08-07 18:32)
+  ✔ Login Ekranı Entegrasyonu @done (16-08-07 18:08)
+  ✔ Model yapısında tüm veritabanı entegrasyonu @done (16-08-07 18:01)
 
 Araştırılacak:
+  ✔ SQL de created_date lere otomatik veri düşmesini sağla @done (16-08-08 02:51)
 
 Yenilenecek:
+
+HataKodlari:
+  Hata1 = Girilen bilgilere göre kullanıcı bulunamadı.
 
 
 
