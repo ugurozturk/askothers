@@ -25,6 +25,16 @@ class Questions extends Model
         return $query->fetchAll();
     }
 
+    public function getQuestions($question_id)
+    {
+        $sql = "SELECT question_id, user_id, question_detail, language_id, points, active, created_date FROM questions WHERE question_id = :question_id LIMIT 1";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':question_id' => $question_id);
+        $query->execute($parameters);
+
+        return $query->fetch();
+    }
+
     public function getTreeQuestionsExpectIVoted($user_id)
     {
         $sql = "SELECT question_id, user_id, question_detail, language_id, active, created_date
@@ -59,16 +69,6 @@ class Questions extends Model
         $parameters = array(':question_id' => $question_id);
 
         $query->execute($parameters);
-    }
-
-    public function getQuestions($question_id)
-    {
-        $sql = "SELECT question_id, user_id, question_detail, language_id, points, active, created_date FROM questions WHERE question_id = :question_id LIMIT 1";
-        $query = $this->db->prepare($sql);
-        $parameters = array(':question_id' => $question_id);
-        $query->execute($parameters);
-
-        return $query->fetch();
     }
 
     public function updateQuestions($question_id, $user_id, $question_detail, $language_id, $points, $active, $created_date)

@@ -245,13 +245,21 @@
                         <i class="fa fa-user fa-fw gri"></i>  <i class="fa fa-caret-down gri"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
+                    <?php if(isset($_SESSION["user_id"]) && !empty($_SESSION["user_id"])){ ?>
                         <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        <li class="disabled"><a class="disabled" ><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="<?php echo URL . 'login/cikis' ?>"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
+                        <?php } else{ ?>
+                        <li><a href="<?php echo URL . 'login'?>"><i class="fa fa-sign-in fa-fw"></i> Login</a>
+                        </li>
+                        <li><a href="<?php echo URL . 'register'?>"><i class="fa fa-user-plus fa-fw"></i> Register</a>
+                        </li>
+                        <?php } ?>
+
                     </ul>
                     <!-- /.dropdown-user -->
                 </li>
@@ -277,7 +285,7 @@
                             <a href="<?php echo URL; ?>"><i class="fa fa-dashboard fa-fw"></i> Anasayfa</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Top 5 Sorular<span class="fa arrow"></span></a>
+                            <a><i class="fa fa-bar-chart-o fa-fw"></i> Top 5 Sorular<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="#">1</a>
@@ -298,7 +306,7 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Top 5 Kullanıcı<span class="fa arrow"></span></a>
+                            <a><i class="fa fa-bar-chart-o fa-fw"></i> Top 5 Kullanıcı<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="#">1</a>
@@ -318,9 +326,17 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
+                        
+                        <?php if(isset($_SESSION["user_id"]) && !empty($_SESSION["user_id"])){ ?>
                         <li>
                             <a href="<?php echo URL . 'shuffle'; ?>"><i class="fa fa-table fa-fw"></i> Shuffle</a>
                         </li>
+                            <?php } else { ?>
+                        <li class="disabled">
+                            <a><i class="fa fa-table fa-fw"></i> Shuffle</a>
+                        </li>
+                            <?php } ?>
+                        
                         <li>
                             <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">

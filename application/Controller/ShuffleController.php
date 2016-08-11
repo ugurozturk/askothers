@@ -23,6 +23,7 @@ class ShuffleController
      */
     public function index()
     {
+        if(isset($_SESSION["user_id"]) && !empty($_SESSION["user_id"])){
         $user_id = $_SESSION["user_id"];
         if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST'){
            $secilenopiton = htmlspecialchars($_POST["optionsRadios"]);
@@ -42,6 +43,7 @@ class ShuffleController
         $questionPollOptions = $pollOption->getAllPollOptionByQuestion($question->question_id);
         
         }
+    }
         // load views
         require APP . 'view/_templates/header.php';
         require APP . 'view/shuffle/index.php';
@@ -49,4 +51,18 @@ class ShuffleController
 
     }
 
+    public function q($q_id){
+        $questions = new Questions();
+        $question = $questions->getQuestions($q_id);
+
+        $pollOption = new PollOption();
+        $questionPollOptions = $pollOption->getAllPollOptionByQuestion($question->question_id);
+        
+
+
+        // load views
+        require APP . 'view/_templates/header.php';
+        require APP . 'view/shuffle/index.php';
+        require APP . 'view/_templates/footer.php';
+    }
 }

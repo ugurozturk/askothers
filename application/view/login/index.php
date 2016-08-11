@@ -42,7 +42,7 @@
                         <h3 class="panel-title">Lütfen Giriş Yapınız</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form">
+                        <form  action="<?php echo URL . 'login/giris'; ?>" method="POST" >
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
@@ -50,13 +50,8 @@
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Password" name="password" type="password" value="">
                                 </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input name="remember" type="checkbox" value="Remember Me">Remember Me
-                                    </label>
-                                </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <a class="btn btn-lg btn-success btn-block" id="loginBtnid">Login</a>
+                                <button class="btn btn-lg btn-success btn-block" type="submit" id="loginBtnid">Login</button>
                             </fieldset>
                         </form>
                     </div>

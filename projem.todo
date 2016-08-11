@@ -3,8 +3,8 @@ Projem için TODO listem:
 Acil:
 
 Kodlanacak:
-  ✔ Bitmedi devam et .\ShuffleController.php"#82b823" // Sonuç Gör'ü ekle @created(16-08-10 09:44) @done (16-08-11 03:39)
   ☐ Login ekranının işlevi 
+  ☐ NewQuestion da tab tuşuyla da yeni alanlar oluşsun. @created(16-08-11 11:12)
   ☐ Soruya id ile dışarıdan bağlantı (dışarıdan gösterme) @created(16-08-10 23:20)
   ☐ Alert Fonksiyonu ekle .\application.js"#4cdb73"
   ☐ Guest sistemini yap
@@ -19,6 +19,7 @@ Kodlanacak:
       ☐ Bugün yeni kullanıcı sayısı
       ☐ Bugün yeni gönderilen soru sayısı
       ☐ Bugün soru cevaplanma sayısı
+  ✔ Bitmedi devam et .\ShuffleController.php"#82b823" // Sonuç Gör'ü ekle @created(16-08-10 09:44) @done (16-08-11 03:39)
   ✔ New Question da ki text alanına tıklanıldıkça yeni anket seçeneği gelsin. @created(16-08-08 20:13) @done (16-08-09 22:38)
   ✔ Tasarımsal yapılandırmayı devam et .\newquestion\index.php"#760340" @created(16-08-09 04:42) @done (16-08-09 22:38)
   ✔ .\NewquestionController.php"#786dda" @done (16-08-09 22:38)

@@ -58,7 +58,7 @@ class User extends Model
     {
         $sql = "SELECT user_id, user_type_id, points, username, password, email, phone, active, created_date FROM user WHERE email = :email AND password = :password LIMIT 1";
         $query = $this->db->prepare($sql);
-        $parameters = array(':email' => $email, 'password' => $password);
+        $parameters = array(':email' => $email, ':password' => $password);
         $query->execute($parameters);
 
         return $query->fetch();
