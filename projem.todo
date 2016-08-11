@@ -3,18 +3,37 @@ Projem için TODO listem:
 Acil:
 
 Kodlanacak:
-  ☐ User Modelinde foreign key entegrasyonu .\Model\User.php"#bf82f4"
-  ☐ Log ekranının işlevi
-  ☐ LoginController yarım kaldı. if bloğunun içerisi doldurulacak
-  Alert Fonksiyonu ekle .\application.js"#4cdb73"
+  ✔ Bitmedi devam et .\ShuffleController.php"#82b823" // Sonuç Gör'ü ekle @created(16-08-10 09:44) @done (16-08-11 03:39)
+  ☐ Login ekranının işlevi 
+  ☐ Soruya id ile dışarıdan bağlantı (dışarıdan gösterme) @created(16-08-10 23:20)
+  ☐ Alert Fonksiyonu ekle .\application.js"#4cdb73"
+  ☐ Guest sistemini yap
+  ☐ Daha önceden oylanan anketlerin listesini ve güncel oy sonuçları görünebilir olsun. @created(16-08-10 23:14)
+  ☐ Kullanıcının gönderdiği soruları görebileceği ve oy sonuçlarını görebilir olsun. @created(16-08-10 23:14)
+  ☐ Bildirimleri aktif et
+  ☐ Report etme olayını aktif et (loglama ile yapabilirsin.)
+  ☐ Anasayfa da sistematik analizleri kullanıcılara da göster.
+      ☐ Toplam kullanıcı sayısı
+      ☐ Toplam gönderilen soru sayısı
+      ☐ Toplam soru cevaplanma sayısı
+      ☐ Bugün yeni kullanıcı sayısı
+      ☐ Bugün yeni gönderilen soru sayısı
+      ☐ Bugün soru cevaplanma sayısı
+  ✔ New Question da ki text alanına tıklanıldıkça yeni anket seçeneği gelsin. @created(16-08-08 20:13) @done (16-08-09 22:38)
+  ✔ Tasarımsal yapılandırmayı devam et .\newquestion\index.php"#760340" @created(16-08-09 04:42) @done (16-08-09 22:38)
+  ✔ .\NewquestionController.php"#786dda" @done (16-08-09 22:38)
+  ✔ LoginController yarım kaldı. if bloğunun içerisi doldurulacak @done (16-08-08 04:24)
   ✔ Log ekranının tasarımı @done (16-08-07 18:32)
   ✔ Login Ekranı Entegrasyonu @done (16-08-07 18:08)
   ✔ Model yapısında tüm veritabanı entegrasyonu @done (16-08-07 18:01)
+  ✘ User Modelinde foreign key entegrasyonu .\Model\User.php"#bf82f4" @cancelled (16-08-08 20:11)
 
 Araştırılacak:
   ✔ SQL de created_date lere otomatik veri düşmesini sağla @done (16-08-08 02:51)
 
 Yenilenecek:
+  ☐ Shuffle ekranında boş gönderilemez yapılacak
+  ☐ 
 
 HataKodlari:
   Hata1 = Girilen bilgilere göre kullanıcı bulunamadı.

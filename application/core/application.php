@@ -21,7 +21,7 @@ class Application
     {
         // create array with URL parts in $url
         $this->splitUrl();
-
+        $_SESSION["user_id"] = 1;
         // check for controller: no controller given ? then load start-page
         if (!$this->url_controller) {
 

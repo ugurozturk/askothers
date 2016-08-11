@@ -18,53 +18,71 @@ class Questions extends Model
 {
     public function getAllQuestions()
     {
-        $sql = "SELECT questions_id, user_id, questions_detail, language_id, active, created_date FROM questions";
+        $sql = "SELECT question_id, user_id, question_detail, language_id, points, active, created_date FROM questions";
         $query = $this->db->prepare($sql);
         $query->execute();
 
         return $query->fetchAll();
     }
 
-    public function addQuestions($user_id, $questions_detail, $language_id, $active, $created_date)
+    public function getTreeQuestionsExpectIVoted($user_id)
     {
-        $sql = "INSERT INTO questions (user_id,questions_detail,language_id,active,created_date) VALUES (:user_id, :questions_detail, :language_id, :active, :created_date)";
+        $sql = "SELECT question_id, user_id, question_detail, language_id, active, created_date
+                FROM questions
+                WHERE question_id not in (
+                SELECT q.question_id
+                FROM questions as q
+                INNER JOIN poll_option as po on q.question_id = po.question_id
+                INNER JOIN poll_option_votes AS pov on po.poll_option_id = pov.poll_option_id
+                WHERE pov.user_id = :user_id) Order By points DESC LIMIT 3";
         $query = $this->db->prepare($sql);
-        $parameters = array(':user_id' => $user_id, ':questions_detail' => $questions_detail, ':language_id' => $language_id, ':active' => $active, ':created_date' => $created_date);
+         $parameters = array(':user_id' => $user_id);
+        $query->execute($parameters);
+
+        return $query->fetchAll();
+    }
+
+    public function addQuestions($user_id, $question_detail, $language_id, $active)
+    {
+        $sql = "INSERT INTO questions (user_id,question_detail,language_id,active) VALUES (:user_id, :question_detail, :language_id, :active)";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':user_id' => $user_id, ':question_detail' => $question_detail, ':language_id' => $language_id, ':active' => $active);
+
+        $query->execute($parameters);
+        return $this->db->lastInsertId();
+    }
+
+    public function deleteQuestions($question_id)
+    {
+        $sql = "DELETE FROM questions WHERE question_id = :question_id";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':question_id' => $question_id);
 
         $query->execute($parameters);
     }
 
-    public function deleteQuestions($questions_id)
+    public function getQuestions($question_id)
     {
-        $sql = "DELETE FROM questions WHERE questions_id = :questions_id";
+        $sql = "SELECT question_id, user_id, question_detail, language_id, points, active, created_date FROM questions WHERE question_id = :question_id LIMIT 1";
         $query = $this->db->prepare($sql);
-        $parameters = array(':questions_id' => $questions_id);
-
-        $query->execute($parameters);
-    }
-
-    public function getQuestions($questions_id)
-    {
-        $sql = "SELECT questions_id, user_id, questions_detail, language_id, active, created_date FROM questions WHERE questions_id = :questions_id LIMIT 1";
-        $query = $this->db->prepare($sql);
-        $parameters = array(':questions_id' => $questions_id);
+        $parameters = array(':question_id' => $question_id);
         $query->execute($parameters);
 
         return $query->fetch();
     }
 
-    public function updateQuestions($questions_id, $user_id, $questions_detail, $language_id, $active, $created_date)
+    public function updateQuestions($question_id, $user_id, $question_detail, $language_id, $points, $active, $created_date)
     {
-        $sql = "UPDATE questions SET user_id = :user_id, questions_detail = :questions_detail, language_id = :language_id, active = :active, created_date = :created_date WHERE questions_id = :questions_id";
+        $sql = "UPDATE questions SET user_id = :user_id, question_detail = :question_detail, language_id = :language_id, points = :points, active = :active, created_date = :created_date WHERE question_id = :question_id";
         $query = $this->db->prepare($sql);
-        $parameters = array(':questions_id' => $questions_id, ':user_id' => $user_id, ':questions_detail' => $questions_detail, ':language_id' => $language_id, ':active' => $active, ':created_date' => $created_date);
+        $parameters = array(':question_id' => $question_id, ':user_id' => $user_id, ':question_detail' => $question_detail, ':language_id' => $language_id, ':points' => $points, ':active' => $active, ':created_date' => $created_date);
 
         $query->execute($parameters);
     }
 
     public function getAmountOfQuestions()
     {
-        $sql = "SELECT COUNT(questions_id) AS amount_of_questions FROM questions";
+        $sql = "SELECT COUNT(question_id) AS amount_of_questions FROM questions";
         $query = $this->db->prepare($sql);
         $query->execute();
 

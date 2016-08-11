@@ -12,6 +12,8 @@
 namespace Mini\Controller;
 
 use Mini\Model\Questions;
+use Mini\Model\PollOption;
+use Mini\Model\PollOptionVotes;
 
 class ShuffleController
 {
@@ -21,7 +23,25 @@ class ShuffleController
      */
     public function index()
     {
+        $user_id = $_SESSION["user_id"];
+        if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST'){
+           $secilenopiton = htmlspecialchars($_POST["optionsRadios"]);
+           $pollOptionVotes = new PollOptionVotes();
+           
+           $pollOptionVotes->addPollOptionVotes(substr($secilenopiton, 1), $user_id);
+        }
 
+    	$questions = new Questions();
+
+        //if($userid === null) { $userid = 2; } //Kontrol Et
+    	$questionsVeriler = $questions->getTreeQuestionsExpectIVoted($user_id);
+        if ($questionsVeriler) {
+        shuffle($questionsVeriler);
+        $question = $questionsVeriler[0];//Böyle bir şey vardı. Arrayden sadece 1 değer gelsin.
+        $pollOption = new PollOption();
+        $questionPollOptions = $pollOption->getAllPollOptionByQuestion($question->question_id);
+        
+        }
         // load views
         require APP . 'view/_templates/header.php';
         require APP . 'view/shuffle/index.php';

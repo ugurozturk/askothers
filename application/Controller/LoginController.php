@@ -38,6 +38,7 @@ class LoginController
     	}
         else{
             echo json_encode(array('email' => $userVeri->email, 'username' =>  $userVeri->username, $userVeri->active));
+            $_SESSION["user_id"] = $userVeri->user_id;
             $_SESSION["email"] =  $userVeri->email;
             $_SESSION["username"] =  $userVeri->username;
         }

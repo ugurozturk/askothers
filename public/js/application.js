@@ -41,6 +41,7 @@ $('#loginBtnid').click(function(){
     
 });
 
+
 $(function() {
 
     // just a super-simple JS demo
@@ -79,4 +80,16 @@ $(function() {
         });
     }
 
+    var questionInput;
+    var syc = 2;
+
+    if ($('[name="anketsorusu[]"]').length !== 0){
+        $('[name="questionform"]').on('click', '[name="anketsorusu[]"]:last', function(){
+            console.log(this);
+            if(this == $('[name="anketsorusu[]"]').last()){
+                alert("asd");
+            }
+            $('#sorugonderbtn').before('<div class="row"><div class="pull-left radio radio-primary"><label><input name="optionsRadios" value="checked'+syc+'" type="radio" /><span class="circle"></span><span class="check"></span></label></div><div class="col-md-9 form-group label-placeholder is-empty"><label for="ip'+syc+'" class="control-label">Seçenek eklemek için tıklayınız</label><input class="form-control" id="ip'+syc+++'" type="text" name="anketsorusu[]" /></div></div>');
+        });
+    }
 });
