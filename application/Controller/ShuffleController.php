@@ -43,7 +43,8 @@ class ShuffleController
         $questionPollOptions = $pollOption->getAllPollOptionByQuestion($question->question_id);
         
         }
-    }
+      }
+      $radioBtnGoster = true;
         // load views
         require APP . 'view/_templates/header.php';
         require APP . 'view/shuffle/index.php';
@@ -57,8 +58,24 @@ class ShuffleController
 
         $pollOption = new PollOption();
         $questionPollOptions = $pollOption->getAllPollOptionByQuestion($question->question_id);
-        
 
+        $radioBtnGoster = true;
+
+        if(isset($_SESSION["user_id"]) && !empty($_SESSION["user_id"])){
+            $user_id = $_SESSION["user_id"];
+            $hasVoted = $questions->checkQuestionVoted($question->question_id, $user_id);
+
+            if($hasVoted){
+                $radioBtnGoster = false;
+            }
+        }
+        if(isset($_GET["sonucgoster"])){
+        $sonusgoster = htmlspecialchars($_GET["sonucgoster"]);
+
+            if ($sonusgoster == "t") {
+                $radioBtnGoster = false;
+            }
+        }
 
         // load views
         require APP . 'view/_templates/header.php';

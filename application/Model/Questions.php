@@ -88,4 +88,20 @@ class Questions extends Model
 
         return $query->fetch()->amount_of_questions;
     }
+
+    public function checkQuestionVoted($question_id, $user_id){
+        $sql = "SELECT pov.poll_option_vote_id FROM poll_option_votes AS pov WHERE pov.poll_option_id = ANY ( Select po.poll_option_id FROM poll_option AS po WHERE po.question_id = :question_id ) AND pov.user_id = :user_id";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':question_id' => $question_id, ':user_id' => $user_id);
+        $query->execute($parameters);
+
+        $veri = $query->fetch();
+
+        if (empty($veri)) {
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
 }
