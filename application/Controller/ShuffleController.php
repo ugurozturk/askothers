@@ -39,8 +39,11 @@ class ShuffleController
         if ($questionsVeriler) {
         shuffle($questionsVeriler);
         $question = $questionsVeriler[0];//Böyle bir şey vardı. Arrayden sadece 1 değer gelsin.
-        $pollOption = new PollOption();
-        $questionPollOptions = $pollOption->getAllPollOptionByQuestion($question->question_id);
+        header('location:' . URL . 'shuffle/q/' . $question->question_id);
+
+
+        //$pollOption = new PollOption();
+        //$questionPollOptions = $pollOption->getAllPollOptionByQuestion($question->question_id);
         
         }
       }
