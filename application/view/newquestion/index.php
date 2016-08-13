@@ -1,4 +1,5 @@
 <div id="page-wrapper">
+<?php if(isset($_SESSION["user_id"]) && !empty($_SESSION["user_id"])){ ?>
 <h1>Soru Gönder  </h1>
 <br />
   <form name="questionform" action="newquestion" method="POST">
@@ -20,5 +21,9 @@
     </div>
     <button type="submit" id="sorugonderbtn" class="btn btn-raised btn-primary">Soru Gönder</button>       
   </form>
+<?php } else { ?>
+<h1> Soru gönderebilmek için üye girişi yapmanız gerekmektedir. </h1>
+
+<?php } ?>
 </div>
         <!-- /#page-wrapper -->

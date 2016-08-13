@@ -73,6 +73,14 @@ class User extends Model
         $query->execute($parameters);
     }
 
+    public function puanEkleUser($user_id, $puan){
+        $sql = "UPDATE user SET points = points + :points WHERE user_id = :user_id";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':user_id' => $user_id, ':points' => $puan);
+
+        $query->execute($parameters);
+    }
+
     public function getAmountOfUser()
     {
         $sql = "SELECT COUNT(user_id) AS amount_of_user FROM user";

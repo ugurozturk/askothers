@@ -45,6 +45,16 @@ class PollOption extends Model
         return $query->fetch();
     }
 
+    public function getQuestionid($poll_option_id)
+    {
+        $sql = "SELECT poll_option_id, question_id, poll_option_detail, active, created_date FROM poll_option WHERE poll_option_id = :poll_option_id LIMIT 1";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':poll_option_id' => $poll_option_id);
+        $query->execute($parameters);
+
+        return $query->fetch();
+    }
+
     public function addPollOption($question_id, $poll_option_detail, $active)
     {
         $sql = "INSERT INTO poll_option (question_id, poll_option_detail, active) VALUES (:question_id, :poll_option_detail, :active)";

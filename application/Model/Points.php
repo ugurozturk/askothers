@@ -18,7 +18,7 @@ class Points extends Model
 {
     public function getAllPoints()
     {
-        $sql = "SELECT points_id, points_value, point_detail FROM points";
+        $sql = "SELECT point_id, point_value, point_detail FROM points";
         $query = $this->db->prepare($sql);
         $query->execute();
 
@@ -27,44 +27,54 @@ class Points extends Model
 
     public function addPoints($points_value, $point_detail)
     {
-        $sql = "INSERT INTO points (points_value, point_detail) VALUES (:points_value, :point_detail)";
+        $sql = "INSERT INTO points (point_value, point_detail) VALUES (:points_value, :point_detail)";
         $query = $this->db->prepare($sql);
-        $parameters = array(':points_id' => $points_id);
+        $parameters = array(':point_id' => $point_id);
 
         $query->execute($parameters);
     }
 
-    public function deletePoints($points_id)
+    public function deletePoints($point_id)
     {
-        $sql = "DELETE FROM points WHERE points_id = :points_id";
+        $sql = "DELETE FROM points WHERE point_id = :point_id";
         $query = $this->db->prepare($sql);
-        $parameters = array(':points_id' => $points_id);
+        $parameters = array(':point_id' => $point_id);
 
         $query->execute($parameters);
     }
 
-    public function getPoints($points_id)
+    public function getPoints($point_id)
     {
-        $sql = "SELECT points_id, points_value, point_detail FROM points WHERE points_id = :points_id LIMIT 1";
+        $sql = "SELECT point_id, point_value, point_detail FROM points WHERE point_id = :point_id LIMIT 1";
         $query = $this->db->prepare($sql);
-        $parameters = array(':points_id' => $points_id);
+        $parameters = array(':point_id' => $point_id);
+        $query->execute($parameters);
+
+        return $query->fetch();
+    }
+
+    public function getPointsFromDetail($point_detail)
+    {
+        $sql = "SELECT point_id, point_value, point_detail FROM points WHERE point_detail like :point_detail LIMIT 1";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':point_detail' => $point_detail);
         $query->execute($parameters);
 
         return $query->fetch();
     }
     
-    public function updatePoints($points_id, $points_value, $point_detail)
+    public function updatePoints($point_id, $points_value, $point_detail)
     {
-        $sql = "UPDATE points SET points_value = :points_value, point_detail = :point_detail WHERE points_id = :points_id";
+        $sql = "UPDATE points SET points_value = :points_value, point_detail = :point_detail WHERE point_id = :point_id";
         $query = $this->db->prepare($sql);
-        $parameters = array(':points_id' => $points_id, ':points_value' => $points_value, ':point_detail' => $point_detail);
+        $parameters = array(':point_id' => $point_id, ':points_value' => $points_value, ':point_detail' => $point_detail);
 
         $query->execute($parameters);
     }
 
     public function getAmountOfPoints()
     {
-        $sql = "SELECT COUNT(points_id) AS amount_of_points FROM points";
+        $sql = "SELECT COUNT(point_id) AS amount_of_points FROM points";
         $query = $this->db->prepare($sql);
         $query->execute();
 

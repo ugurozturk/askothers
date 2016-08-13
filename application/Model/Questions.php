@@ -80,6 +80,15 @@ class Questions extends Model
         $query->execute($parameters);
     }
 
+    public function puanEkleQuestion($question_id, $points)
+    {
+        $sql = "UPDATE questions SET points = points + :points WHERE question_id = :question_id";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':question_id' => $question_id, ':points' => $points);
+
+        $query->execute($parameters);
+    }
+
     public function getAmountOfQuestions()
     {
         $sql = "SELECT COUNT(question_id) AS amount_of_questions FROM questions";

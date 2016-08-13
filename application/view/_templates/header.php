@@ -50,6 +50,7 @@
                         <i class="fa fa-plus fa-fw gri"></i>
                     </a>
                 </li>
+                <?php /* 
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-envelope fa-fw gri"></i>  <i class="fa fa-caret-down gri"></i>
@@ -239,6 +240,7 @@
                     </ul>
                     <!-- /.dropdown-alerts -->
                 </li>
+                */ ?>
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">

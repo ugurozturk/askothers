@@ -23,8 +23,8 @@ class NewquestionController
      */
     public function index()
     {
-      $questions = new Questions();
-
+      if(isset($_SESSION["user_id"]) && !empty($_SESSION["user_id"])){
+        $questions = new Questions();
         if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST'){
           $questiondetail =  htmlspecialchars($_POST["questiondetail"]);
           $user_id = $_SESSION["user_id"];
@@ -42,7 +42,7 @@ class NewquestionController
             }
           }
         }
-
+      }
         // load views
         require APP . 'view/_templates/header.php';
         require APP . 'view/newquestion/index.php';
