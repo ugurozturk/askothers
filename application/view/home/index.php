@@ -1,9 +1,5 @@
         <div id="page-wrapper">
-                <?php 
-                	foreach ($usertype_veriler as $key => $value) {
-                		echo $value->user_type_name . '<br />';
-                	}
-                ?>
+        <h1>Sistemimiz güncelleniyor.</h1>
         </div>
         <!-- /#page-wrapper -->
     

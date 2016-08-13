@@ -36,6 +36,16 @@ class User extends Model
         return $query->fetch();
     }
 
+    public function getUserFromUsername($username)
+    {
+        $sql = "SELECT user_id, user_type_id, points, username, password, email, phone, active, created_date FROM user WHERE username = :username LIMIT 1";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':username' => $username);
+        $query->execute($parameters);
+
+        return $query->fetch();
+    }
+
     public function getUserByMailAndPw($email, $password)
     {
         $sql = "SELECT user_id, user_type_id, points, username, password, email, phone, active, created_date FROM user WHERE email = :email AND password = :password LIMIT 1";

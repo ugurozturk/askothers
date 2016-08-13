@@ -25,6 +25,16 @@ class Questions extends Model
         return $query->fetchAll();
     }
 
+    public function getAllUserQuestions($user_id)
+    {
+        $sql = "SELECT question_id, user_id, question_detail, language_id, points, active, created_date FROM questions WHERE user_id = :user_id ORDER BY created_date DESC";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':user_id' => $user_id);
+        $query->execute($parameters);
+
+        return $query->fetchAll();
+    }
+
     public function getQuestions($question_id)
     {
         $sql = "SELECT question_id, user_id, question_detail, language_id, points, active, created_date FROM questions WHERE question_id = :question_id LIMIT 1";

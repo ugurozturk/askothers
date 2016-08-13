@@ -248,7 +248,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                     <?php if(isset($_SESSION["user_id"]) && !empty($_SESSION["user_id"])){ ?>
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        <li><a href="<?php echo URL . 'profile'; ?>"><i class="fa fa-user fa-fw"></i> User Profile</a>
                         </li>
                         <li class="disabled"><a class="disabled" ><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
@@ -294,7 +294,7 @@
                             $top5question = $sorular->getQuestionsTop5();
                             foreach ($top5question as $key => $value) { ?>
                             <li>
-                            <?php echo "<a href='#'>".$value->question_detail."</a>" ?>
+                            <?php echo "<a href='#'>".$value->question_detail."</a>"; ?>
                             </li>
                             <?php } ?>
                             </ul>
@@ -324,37 +324,6 @@
                             <a><i class="fa fa-table fa-fw"></i> Shuffle</a>
                         </li>
                             <?php } ?>
-                        
-                        <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="#">Second Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Second Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Third Level <span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level">
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                    </ul>
-                                    <!-- /.nav-third-level -->
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
