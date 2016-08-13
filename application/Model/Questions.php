@@ -35,6 +35,15 @@ class Questions extends Model
         return $query->fetch();
     }
 
+    public function getQuestionsTop5()
+    {
+        $sql = "SELECT question_id, user_id, question_detail, language_id, points, active, created_date FROM questions WHERE points != 0 Order By points DESC LIMIT 5";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        return $query->fetchAll();
+    }
+
     public function getTreeQuestionsExpectIVoted($user_id)
     {
         $sql = "SELECT question_id, user_id, question_detail, language_id, active, created_date

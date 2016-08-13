@@ -289,42 +289,28 @@
                         <li>
                             <a><i class="fa fa-bar-chart-o fa-fw"></i> Top 5 Sorular<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="#">1</a>
-                                </li>
-                                <li>
-                                    <a href="#">2</a>
-                                </li>
-                                <li>
-                                    <a href="#">3</a>
-                                </li>
-                                <li>
-                                    <a href="#">4</a>
-                                </li>
-                                <li>
-                                    <a href="#">5</a>
-                                </li>
+                            <?php 
+                            $sorular = new Mini\Model\Questions();
+                            $top5question = $sorular->getQuestionsTop5();
+                            foreach ($top5question as $key => $value) { ?>
+                            <li>
+                            <?php echo "<a href='#'>".$value->question_detail."</a>" ?>
+                            </li>
+                            <?php } ?>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
                             <a><i class="fa fa-bar-chart-o fa-fw"></i> Top 5 Kullanıcı<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="#">1</a>
-                                </li>
-                                <li>
-                                    <a href="#">2</a>
-                                </li>
-                                <li>
-                                    <a href="#">3</a>
-                                </li>
-                                <li>
-                                    <a href="#">4</a>
-                                </li>
-                                <li>
-                                    <a href="#">5</a>
-                                </li>
+                            <?php 
+                            $kullanicilar = new Mini\Model\User();
+                            $top5user = $kullanicilar->getUserTop5();
+                            foreach ($top5user as $key => $value) { ?>
+                            <li>
+                            <?php echo "<a href='#'>".$value->username."</a>" ?>
+                            </li>
+                            <?php } ?>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>

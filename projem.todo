@@ -20,6 +20,7 @@ Kodlanacak:
       ☐ Bugün soru cevaplanma sayısı
   ☐ Kayıtta email aktivasyonunu entegre et. 
   ☐ Kullanıcı gönderdiği soruları görebileceği liste olsun. @created(16-08-11 15:37)
+  ☐ Soru göndermede karakter limitini göster.
   ✔ Soruya id ile dışarıdan bağlantı (dışarıdan gösterme) @created(16-08-10 23:20) @done (16-08-11 15:35)
   ✔ Bitmedi devam et .\ShuffleController.php"#82b823" // Sonuç Gör'ü ekle @created(16-08-10 09:44) @done (16-08-11 03:39)
   ✔ New Question da ki text alanına tıklanıldıkça yeni anket seçeneği gelsin. @created(16-08-08 20:13) @done (16-08-09 22:38)

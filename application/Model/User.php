@@ -26,24 +26,6 @@ class User extends Model
         return $query->fetchAll();
     }
 
-    public function addUser($user_type_id, $points, $username, $password, $email, $phone, $active)
-    {
-        $sql = "INSERT INTO user (user_type_id, points, username, password, email, phone, active) VALUES (:user_type_id, :points, :username, :password, :email, :phone, :active)";
-        $query = $this->db->prepare($sql);
-        $parameters = array(':user_type_id' => $user_type_id, ':points' => $points, ':username' => $username, ':password' => $password, ':email' => $email, ':phone' => $phone, ':active' => $active);
-
-        $query->execute($parameters);
-    }
-
-    public function deleteUser($user_id)
-    {
-        $sql = "DELETE FROM user WHERE user_id = :user_id";
-        $query = $this->db->prepare($sql);
-        $parameters = array(':user_id' => $user_id);
-
-        $query->execute($parameters);
-    }
-
     public function getUser($user_id)
     {
         $sql = "SELECT user_id, user_type_id, points, username, password, email, phone, active, created_date FROM user WHERE user_id = :user_id LIMIT 1";
@@ -63,6 +45,35 @@ class User extends Model
 
         return $query->fetch();
     }
+
+    public function getUserTop5()
+    {
+        $sql = "SELECT user_id, user_type_id, points, username, password, email, phone, active, created_date FROM user WHERE points != 0 ORDER BY points DESC LIMIT 5";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        return $query->fetchAll();
+    }
+
+    public function addUser($user_type_id, $points, $username, $password, $email, $phone, $active)
+    {
+        $sql = "INSERT INTO user (user_type_id, points, username, password, email, phone, active) VALUES (:user_type_id, :points, :username, :password, :email, :phone, :active)";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':user_type_id' => $user_type_id, ':points' => $points, ':username' => $username, ':password' => $password, ':email' => $email, ':phone' => $phone, ':active' => $active);
+
+        $query->execute($parameters);
+    }
+
+    public function deleteUser($user_id)
+    {
+        $sql = "DELETE FROM user WHERE user_id = :user_id";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':user_id' => $user_id);
+
+        $query->execute($parameters);
+    }
+
+   
 
     public function updateUser($user_id, $user_type_id, $points, $username, $password, $email, $phone, $active)
     {
