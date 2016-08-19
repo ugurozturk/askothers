@@ -16,17 +16,22 @@ class NewquestionController
           $questiondetail =  htmlspecialchars($_POST["questiondetail"]);
           $user_id = $_SESSION["user_id"];
           $checkedpoll =substr(htmlspecialchars($_POST["optionsRadios"]),7);
-          $lastinsertedqid = $questions->addQuestions($user_id, $questiondetail, 1, 1);
+          if($questiondetail != "" && strlen($questiondetail) > 5){
+            $lastinsertedqid = $questions->addQuestions($user_id, $questiondetail, 1, 1);
 
-          $polloption = new PollOption();
-          foreach ($_POST["anketsorusu"] as $key => $value) {
-            if($value != ""){
-             $lastinsertedpid = $polloption->addPollOption($lastinsertedqid, $value, 1);
-              if ($checkedpoll-1 === $key) {
-                $polloptionvotes = new PollOptionVotes();
-                $polloptionvotes->addPollOptionVotes($lastinsertedpid, $user_id);
+            $polloption = new PollOption();
+            foreach ($_POST["anketsorusu"] as $key => $value) {
+              if($value != ""){
+              $lastinsertedpid = $polloption->addPollOption($lastinsertedqid, $value, 1);
+                if ($checkedpoll-1 === $key) {
+                  $polloptionvotes = new PollOptionVotes();
+                  $polloptionvotes->addPollOptionVotes($lastinsertedpid, $user_id);
+                }
               }
             }
+          }
+          else {
+            echo "Soru başlığı yeterli uzunlukta değil";
           }
         }
       }
