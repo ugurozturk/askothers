@@ -9,15 +9,17 @@
 
  <!-- Material Design fonts -->
   <link rel="stylesheet" type="text/css" href="<?php echo URL . 'css/googlefont.css' ?>">
+  <link rel="stylesheet" type="text/css" href="<?php echo URL . 'css/animate.css' ?>">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
    <link href="<?php echo URL . '/bower_components/components-font-awesome/css/font-awesome.min.css' ?>" rel="stylesheet">
+   
   <!-- Bootstrap -->
   <link rel="stylesheet" type="text/css" href="<?php echo URL . 'bower_components/bootstrap/dist/css/bootstrap.min.css' ?>">
 
   <!-- Bootstrap Material Design -->
   <link rel="stylesheet" type="text/css" href="<?php echo URL . 'bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.css' ?>">
   <link rel="stylesheet" type="text/css" href="<?php echo URL . 'bower_components/bootstrap-material-design/dist/css/ripples.min.css' ?>">
-
+  
    <!-- MetisMenu CSS -->
     <link href="<?php echo URL . '/bower_components/metisMenu/dist/metisMenu.min.css ' ?>" rel="stylesheet">
 <!-- Stlye -->
