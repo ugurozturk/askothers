@@ -90,7 +90,7 @@ $(function() {
     var syc = 2;
 
     if ($('[name="anketsorusu[]"]').length !== 0){
-        $('[name="questionform"]').on('click', '[name="anketsorusu[]"]:last', function(){
+        $('[name="questionform"]').on('focus', '[name="anketsorusu[]"]:last', function(){
             
             if(this == $('[name="anketsorusu[]"]').last()){
                 alert("asd");
