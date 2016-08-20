@@ -4,7 +4,10 @@ namespace Mini\Controller;
 
 use Mini\Model\User;
 use Mini\Model\UserType;
+use Mini\Model\UserActivate;
 use Mini\Model\Questions;
+use Mini\Model\Log;
+
 
 class ProfileController
 {
@@ -15,6 +18,9 @@ class ProfileController
         $userClass = new User();
         $user = $userClass->GetUser($user_id);
         }
+
+         $showSendQuestionBtn = true;
+
         // load views
         require APP . 'view/_templates/header.php';
         require APP . 'view/profile/index.php';
@@ -26,6 +32,8 @@ class ProfileController
         $userClass = new User();
         $user = $userClass->getUserFromUsername($username);
         
+        $showSendQuestionBtn = false;
+
         // load views
         require APP . 'view/_templates/header.php';
         require APP . 'view/profile/index.php';
@@ -42,6 +50,32 @@ class ProfileController
         // load views
         require APP . 'view/_templates/header.php';
         require APP . 'view/profile/userQuestionList.php';
+        require APP . 'view/_templates/footer.php';
+    }
+
+    public function activate($d){
+        //username-key şeklinde geliyor.
+        $username = substr($d,0,strrpos($d,"-"));
+        $activate_code = substr($d,strrpos($d,"-")+1);
+        $userModel = new User;
+        $user = $userModel->getUserFromUsername($username);
+
+        $useractivateModel = new UserActivate;
+        $useractivate = $useractivateModel->getUserActivateByUseridAndCode($user->user_id, $activate_code);
+        
+        if($useractivate){
+            $userModel->updateUserActive($user->user_id);
+
+            $log = new Log;
+            $log->addLog(3,$user->user_id);
+            $sonuc = "Aktivasyon işleminiz tamamlandı.";
+        }
+        else{
+            $sonuc = "Aktivasyon işleminiz başarısız.";
+        }
+         // load views
+        require APP . 'view/_templates/header.php';
+        require APP . 'view/profile/activate.php';
         require APP . 'view/_templates/footer.php';
     }
 }
