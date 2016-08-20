@@ -70,4 +70,13 @@ class PollOptionVotes extends Model
 
         return $query->fetch()->amount_of_polloptionvotes;
     }
+
+    public function getAmountOfPollOptionVotesLast24h()
+    {
+        $sql = "SELECT COUNT(poll_option_vote_id) AS amount_of_polloptionvotes FROM poll_option_votes  WHERE created_date >= CURDATE() - INTERVAL 1 DAY";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        return $query->fetch()->amount_of_polloptionvotes;
+    }
 }

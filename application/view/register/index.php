@@ -57,7 +57,7 @@
                                     <input class="form-control" placeholder="Re-Password" name="Repassword" type="password" required>
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <button class="btn btn-lg btn-success btn-block" type="submit" id="loginBtnid">Login</button>
+                                <button class="btn btn-lg btn-success btn-block" type="submit" id="registerBtnid">Register</button>
                             </fieldset>
                         </form>
                     </div>

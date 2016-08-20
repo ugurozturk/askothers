@@ -53,6 +53,15 @@ class Log extends Model
         return $query->fetch();
     }
 
+    public function getLogActivate($log_detail){
+        $sql = "SELECT log_id, log_type_id, log_detail, created_date FROM log WHERE log_detail = :log_detail LIMIT 1";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':log_detail' => $log_detail);
+        $query->execute($parameters);
+
+        return $query->fetch();
+    }
+
     public function updateLog($log_id, $log_type_id, $log_detail)
     {
         $sql = "UPDATE log SET log_type_id = :log_type_id, log_detail = :log_detail WHERE log_id = :log_id";

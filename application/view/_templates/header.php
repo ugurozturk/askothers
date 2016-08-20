@@ -26,7 +26,7 @@
   <link rel="stylesheet" type="text/css" href="<?php echo URL . 'css/style.css' ?>">
  <!-- Custom CSS -->
     <link href="<?php echo URL . 'css/sb-admin-2.css' ?>" rel="stylesheet">
-
+    <script src="<?php echo URL . 'bower_components/jquery/dist/jquery.js' ?>"></script>
   <title>Başlık</title>
 </head>
 <body>

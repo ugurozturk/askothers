@@ -27,7 +27,13 @@ class Questions extends Model
 
     public function getAllUserQuestions($user_id)
     {
-        $sql = "SELECT question_id, user_id, question_detail, language_id, points, active, created_date FROM questions WHERE user_id = :user_id ORDER BY created_date DESC";
+        $sql = "SELECT q.question_id, q.question_detail, Count(pov.poll_option_id) as cevapsayisi
+                FROM questions as q
+                INNER JOIN poll_option as po on q.question_id = po.question_id
+                INNER JOIN poll_option_votes as pov on po.poll_option_id = pov.poll_option_id
+                WHERE q.user_id = :user_id
+                Group BY po.question_id
+                Order BY q.created_date DESC";
         $query = $this->db->prepare($sql);
         $parameters = array(':user_id' => $user_id);
         $query->execute($parameters);
@@ -111,6 +117,14 @@ class Questions extends Model
     public function getAmountOfQuestions()
     {
         $sql = "SELECT COUNT(question_id) AS amount_of_questions FROM questions";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        return $query->fetch()->amount_of_questions;
+    }
+    public function getAmountOfQuestionsLast24h()
+    {
+        $sql = "SELECT COUNT(question_id) AS amount_of_questions FROM questions WHERE created_date >= CURDATE() - INTERVAL 1 DAY";
         $query = $this->db->prepare($sql);
         $query->execute();
 

@@ -3,7 +3,7 @@
      </div>
     <!-- /#wrapper -->
 
-   <script src="<?php echo URL . 'bower_components/jquery/dist/jquery.js' ?>"></script>
+   
   <script src="<?php echo URL . 'bower_components/bootstrap/dist/js/bootstrap.js' ?>"></script>
   <script src="<?php echo URL . 'bower_components/bootstrap-material-design/dist/js/material.min.js' ?>"></script>
   <script src="<?php echo URL . 'bower_components/bootstrap-material-design/dist/js/ripples.min.js' ?>"></script>

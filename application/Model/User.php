@@ -83,13 +83,20 @@ class User extends Model
         $query->execute($parameters);
     }
 
-   
-
     public function updateUser($user_id, $user_type_id, $points, $username, $password, $email, $phone, $active)
     {
         $sql = "UPDATE user SET user_type_id = :user_type_id, points = :points, username = :username, password = :password, email = :email, phone = :phone, active = :active WHERE user_id = :user_id";
         $query = $this->db->prepare($sql);
         $parameters = array(':user_id' => $user_id, ':user_type_id' => $user_type_id, ':points' => $points, ':username' => $username, ':password' => $password, ':email' => $email, ':phone' => $phone, ':active' => $active);
+
+        $query->execute($parameters);
+    }
+
+    public function updateUserActive($user_id)
+    {
+        $sql = "UPDATE user SET user_type_id = 3, active = 1  WHERE user_id = :user_id";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':user_id' => $user_id);
 
         $query->execute($parameters);
     }
@@ -105,6 +112,15 @@ class User extends Model
     public function getAmountOfUser()
     {
         $sql = "SELECT COUNT(user_id) AS amount_of_user FROM user";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        return $query->fetch()->amount_of_user;
+    }
+
+    public function getAmountOfUserLast24h()
+    {
+        $sql = "SELECT COUNT(user_id) AS amount_of_user FROM user Where created_date >= CURDATE() - INTERVAL 1 DAY ";
         $query = $this->db->prepare($sql);
         $query->execute();
 

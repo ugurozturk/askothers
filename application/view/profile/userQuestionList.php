@@ -1,5 +1,5 @@
         <div id="page-wrapper">
-		<?php if ($questions):  ?>
+		<?php if (isset($questions)):  ?>
 			<table class="table table-striped table-hover ">
   			<thead>
   			<tr>
@@ -14,7 +14,7 @@
           <td><a href="<?php echo URL . 'shuffle/q/'. $value->question_id; ?>"><i class="fa fa-caret-square-o-right" aria-hidden="true"></i>
 </a></td>
   				<td><?php echo $value->question_detail; ?></td>
-  				<td><?php echo "5"; //#bf8b11 Devamını getir ?></td>	
+  				<td><?php echo $value->cevapsayisi; ?></td>	
   			</tr>
         <?php endforeach ?>
         </tbody>

@@ -3,27 +3,32 @@ Projem için TODO listem:
 Acil:
 
 Kodlanacak:
-  ✔ Login ekranının işlevi  @done (16-08-13 13:06)
+ 
   ☐ NewQuestion da tab tuşuyla da yeni alanlar oluşsun. @created(16-08-11 11:12)
-  ☐ Alert Fonksiyonu ekle .\application.js"#4cdb73"
   ☐ Guest sistemini yap
   ☐ Daha önceden oylanan anketlerin listesini ve güncel oy sonuçları görünebilir olsun. @created(16-08-10 23:14)
-  ☐ Kullanıcının gönderdiği soruları görebileceği ve oy sonuçlarını görebilir olsun. @created(16-08-10 23:14)
+  ✔ Kullanıcının gönderdiği soruları görebileceği ve oy sonuçlarını görebilir olsun. @created(16-08-10 23:14) @done 20.08.2016 16:37:12
   ☐ Bildirimleri aktif et
   ☐ Report etme olayını aktif et (loglama ile yapabilirsin.)
-  ☐ Anasayfa da sistematik analizleri kullanıcılara da göster.
-      ☐ Toplam kullanıcı sayısı
-      ☐ Toplam gönderilen soru sayısı
-      ☐ Toplam soru cevaplanma sayısı
-      ☐ Bugün yeni kullanıcı sayısı
-      ☐ Bugün yeni gönderilen soru sayısı
-      ☐ Bugün soru cevaplanma sayısı
-  ☐ Kayıtta email aktivasyonunu entegre et. 
-  ☐ Kullanıcı gönderdiği soruları görebileceği liste olsun. @created(16-08-11 15:37)
+  ✔ Kayıtta email aktivasyonunu entegre et. @done 20.08.2016 16:38:53
+  ✔ Kullanıcı gönderdiği soruları görebileceği liste olsun. @created(16-08-11 15:37) @done 20.08.2016 16:39:06
   ☐ Soru göndermede karakter limitini göster.
   ☐ Mobile de sağ taraf da ki register ve login kayık oluyor.
-  ☐ Üye olunduktan sonra otomatik giriş yapılmış olsun.
+  ☐ Üyelik aktivasyonunda otomatik giriş yapılmış olsun.
+  ✘ Üye olunduktan sonra otomatik giriş yapılmış olsun. @cancelled 20.08.2016 16:40:44
   ☐ Cevaplanma sayısının devamını getir .\userQuestionList.php"#bf8b11"
+  ✔ Anasayfa da sistematik analizleri kullanıcılara da göster. @done
+      ✔ Toplam kullanıcı sayısı @done
+      ✔ Toplam gönderilen soru sayısı @done
+      ✔ Toplam soru cevaplanma sayısı @done
+      ✔ Son 24 Saat yeni kullanıcı sayısı @done
+      ✔ Son 24 Saat gönderilen soru sayısı @done
+      ✔ Son 24 Saat cevaplanan soru sayısı @done
+      ✘ Bugün yeni kullanıcı sayısı @cancelled
+      ✘ Bugün yeni gönderilen soru sayısı @cancelled
+      ✘ Bugün soru cevaplanma sayısı @cancelled
+  ✔ Login ekranının işlevi  @done (16-08-13 13:06)
+  ✔ Alert Fonksiyonu ekle .\application.js"#4cdb73" @done 19.08.2016 20:18:08 
   ✔ Soruya id ile dışarıdan bağlantı (dışarıdan gösterme) @created(16-08-10 23:20) @done (16-08-11 15:35)
   ✔ Bitmedi devam et .\ShuffleController.php"#82b823" // Sonuç Gör'ü ekle @created(16-08-10 09:44) @done (16-08-11 03:39)
   ✔ New Question da ki text alanına tıklanıldıkça yeni anket seçeneği gelsin. @created(16-08-08 20:13) @done (16-08-09 22:38)
