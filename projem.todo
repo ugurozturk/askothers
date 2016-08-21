@@ -5,8 +5,11 @@ Acil:
 Kodlanacak:
  
   ✔ NewQuestion da tab tuşuyla da yeni alanlar oluşsun. @created(16-08-11 11:12) @done 20.08.2016 17:16:19
+  ☐ Facebook ile giriş yapılabilir olsun.
+  ☐ Google+ ile giriş yapılabilir olsun.
   ☐ Guest sistemini yap
-  ☐ Daha önceden oylanan anketlerin listesini ve güncel oy sonuçları görünebilir olsun. @created(16-08-10 23:14)
+  ☐ Skip özelliğini aktif et.
+  ✔ Daha önceden oylanan anketlerin listesini ve güncel oy sonuçları görünebilir olsun. @created(16-08-10 23:14) @done 21.08.2016 12:23:45
   ✔ Kullanıcının gönderdiği soruları görebileceği ve oy sonuçlarını görebilir olsun. @created(16-08-10 23:14) @done 20.08.2016 16:37:12
   ☐ Bildirimleri aktif et
   ☐ Report etme olayını aktif et (loglama ile yapabilirsin.)

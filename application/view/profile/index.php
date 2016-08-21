@@ -5,6 +5,7 @@
         <br />
         <?php if ($showSendQuestionBtn) { ?>
         <a class="btn btn-raised btn-primary" href="<?php echo URL . 'profile/userQuestionsList' ?>">Gönderdiğim Soruları Listele</a>
+        <a class="btn btn-raised btn-primary" href="<?php echo URL . 'profile/userVotedList' ?>">Cevapladığım Soruları Listele</a>
         <?php } ?>
         <?php else: echo "Kullanıcı Bulunamadı"; ?>
         </div>

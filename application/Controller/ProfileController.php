@@ -53,6 +53,19 @@ class ProfileController
         require APP . 'view/_templates/footer.php';
     }
 
+    public function userVotedList(){
+    	if(isset($_SESSION["user_id"]) && !empty($_SESSION["user_id"])){
+        $user_id = $_SESSION["user_id"];
+        $questionClass = new Questions();
+        $questions = $questionClass->getAllUserVotedQuestions($user_id);
+        }
+
+        // load views
+        require APP . 'view/_templates/header.php';
+        require APP . 'view/profile/userVotedList.php';
+        require APP . 'view/_templates/footer.php';
+    }
+
     public function activate($d){
         //username-key şeklinde geliyor.
         $username = substr($d,0,strrpos($d,"-"));

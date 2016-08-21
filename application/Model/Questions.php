@@ -1,15 +1,5 @@
 <?php
 
-/**
- * Class Songs
- * This is a demo Model class.
- *
- * Please note:
- * Don't use the same name for class and method, as this might trigger an (unintended) __construct of the class.
- * This is really weird behaviour, but documented here: http://php.net/manual/en/language.oop5.decon.php
- *
- */
-
 namespace Mini\Model;
 
 use Mini\Core\Model;
@@ -32,6 +22,28 @@ class Questions extends Model
                 INNER JOIN poll_option as po on q.question_id = po.question_id
                 INNER JOIN poll_option_votes as pov on po.poll_option_id = pov.poll_option_id
                 WHERE q.user_id = :user_id
+                Group BY po.question_id
+                Order BY q.created_date DESC";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':user_id' => $user_id);
+        $query->execute($parameters);
+
+        return $query->fetchAll();
+    }
+
+    public function getAllUserVotedQuestions($user_id)
+    {
+        $sql = "SELECT q.question_id, q.question_detail, Count(pov.poll_option_id) as cevapsayisi
+                FROM questions as q
+                INNER JOIN poll_option as po on q.question_id = po.question_id
+                INNER JOIN poll_option_votes as pov on po.poll_option_id = pov.poll_option_id
+                WHERE q.question_id in (
+                	Select q2.question_id
+                	From questions as q2
+                    INNER JOIN poll_option as po2 on q2.question_id = po2.question_id
+                    INNER JOIN poll_option_votes as pov2 on po2.poll_option_id = pov2.poll_option_id
+                    Where pov2.user_id = 1
+                )
                 Group BY po.question_id
                 Order BY q.created_date DESC";
         $query = $this->db->prepare($sql);

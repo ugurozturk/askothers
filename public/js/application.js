@@ -22,11 +22,30 @@ $('#loginBtnid').click(function(){
     })
     .done(function(data) {
         if(data.Result == "Hata1"){
+            var n = noty({
+    text: 'Girilen bilgiler yanlış',
+    layout: 'topRight',
+    type: 'error',
+    timeout: '50',
+    animation: {
+        open: 'animated bounceIn', // Animate.css class names
+        close: 'animated bounceOut', // Animate.css class names
+    }
+    });
         }
         else{
             if(data.active == 1) {
                 console.log("active true");
-                //#4cdb73 Alert fonksiyonu ekle
+                var n = noty({
+    text: 'Giriş Başarılı',
+    layout: 'topRight',
+    type: 'success',
+    timeout: '50',
+    animation: {
+        open: 'animated bounceIn', // Animate.css class names
+        close: 'animated bounceOut', // Animate.css class names
+    }
+    });
             }
             else{
                 // Alert Aktif Değil Fonksiyonu ekle
