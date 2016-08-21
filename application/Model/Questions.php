@@ -77,11 +77,17 @@ class Questions extends Model
         $sql = "SELECT question_id, user_id, question_detail, language_id, active, created_date
                 FROM questions
                 WHERE question_id not in (
-                SELECT q.question_id
-                FROM questions as q
-                INNER JOIN poll_option as po on q.question_id = po.question_id
-                INNER JOIN poll_option_votes AS pov on po.poll_option_id = pov.poll_option_id
-                WHERE pov.user_id = :user_id) Order By points DESC LIMIT 3";
+                    Select q.question_id
+                    From questions as q
+                    INNER JOIN poll_option as po on q.question_id = po.question_id
+                    INNER JOIN poll_option_votes AS pov on po.poll_option_id = pov.poll_option_id
+                    Where pov.user_id = :user_id) 
+                AND question_id not in (
+                	Select qs.questions_id
+                    From questions_skip as qs
+                    WHERE qs.user_id = :user_id AND qs.skipped_date > NOW()
+                )
+                Order By points DESC LIMIT 3";
         $query = $this->db->prepare($sql);
          $parameters = array(':user_id' => $user_id);
         $query->execute($parameters);
