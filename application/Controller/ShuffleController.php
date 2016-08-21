@@ -7,6 +7,7 @@ use Mini\Model\PollOption;
 use Mini\Model\PollOptionVotes;
 use Mini\Model\User;
 use Mini\Model\Points;
+use Mini\Model\QuestionsSkip;
 
 class ShuffleController
 {
@@ -89,5 +90,16 @@ class ShuffleController
         require APP . 'view/_templates/header.php';
         require APP . 'view/shuffle/index.php';
         require APP . 'view/_templates/footer.php';
+    }
+
+    public function skip($q_id){
+        if(isset($_SESSION["user_id"]) && !empty($_SESSION["user_id"])){
+            $user_id = $_SESSION["user_id"];
+            
+            $questionSkip = new QuestionsSkip;
+            $questionSkip->addQuestionsSkip($q_id, $user_id, date('Y-m-d', strtotime("+7 days")));
+
+            header('location:' . URL . 'shuffle');
+        }
     }
 }
