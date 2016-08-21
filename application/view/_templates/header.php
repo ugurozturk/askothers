@@ -296,7 +296,7 @@
                             $top5question = $sorular->getQuestionsTop5();
                             foreach ($top5question as $key => $value) { ?>
                             <li>
-                            <?php echo "<a href='#'>".$value->question_detail."</a>"; ?>
+                            <?php echo "<a href='". URL . "shuffle/q/". $value->question_id."'>".$value->question_detail."</a>"; ?>
                             </li>
                             <?php } ?>
                             </ul>
@@ -310,7 +310,7 @@
                             $top5user = $kullanicilar->getUserTop5();
                             foreach ($top5user as $key => $value) { ?>
                             <li>
-                            <?php echo "<a href='#'>".$value->username."</a>" ?>
+                            <?php echo "<a href='". URL . "profile/u/". $value->username ."'>".$value->username."</a>" ?>
                             </li>
                             <?php } ?>
                             </ul>
