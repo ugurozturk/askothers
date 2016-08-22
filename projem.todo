@@ -8,12 +8,14 @@ Kodlanacak:
   ☐ Facebook ile giriş yapılabilir olsun.
   ☐ Google+ ile giriş yapılabilir olsun.
   ☐ Guest sistemini yap
+  ☐ Soru gönderme yerine resim ekleme yap
   ✔ Skip özelliğini aktif et. @done
   ✔ Top 5 Sorular ve Kullanıcılar linklerini aktif et @done
   ✔ Daha önceden oylanan anketlerin listesini ve güncel oy sonuçları görünebilir olsun. @created(16-08-10 23:14) @done 21.08.2016 12:23:45
   ✔ Kullanıcının gönderdiği soruları görebileceği ve oy sonuçlarını görebilir olsun. @created(16-08-10 23:14) @done 20.08.2016 16:37:12
   ☐ Bildirimleri aktif et
-  ☐ Report etme olayını aktif et (loglama ile yapabilirsin.)
+  ✔ Report etme olayını aktif et (loglama ile yapabilirsin.) @done 21.08.2016 21:22:39
+  ☐ Report etme olayını ajax 'a bağla, sayfa değişmesin.
   ✔ Kayıtta email aktivasyonunu entegre et. @done 20.08.2016 16:38:53
   ✔ Kullanıcı gönderdiği soruları görebileceği liste olsun. @created(16-08-11 15:37) @done 20.08.2016 16:39:06
   ☐ Soru göndermede karakter limitini göster.

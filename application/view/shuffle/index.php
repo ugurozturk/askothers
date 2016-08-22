@@ -41,9 +41,12 @@
               </table>
               <?php if(isset($question) && $question ){ ?>
                <?php if ($radioBtnGoster) { ?>
-                 <button type="submit" class="btn btn-raised btn-primary">Oyla</button>
-                 <a href="<?php echo URL . 'shuffle/q/' . $question->question_id . '?sonucgoster=t'; ?>" class="btn btn-raised btn-primary">Sonuçları Göster</a>
-                 <a href="<?php echo URL . 'shuffle/skip/' . $question->question_id; ?>" class="btn btn-raised btn-primary">Atla</a>
+                 <button type="submit" class="btn btn-raised btn-info pull-left">Oyla</button>
+                 <div class="row">
+                 <a href="<?php echo URL . 'shuffle/q/' . $question->question_id . '?sonucgoster=t'; ?>" class="btn btn-raised btn-primary pull-left">Sonuçları Göster</a>
+                 <a href="<?php echo URL . 'shuffle/skip/' . $question->question_id; ?>" class="btn btn-raised btn-primary pull-left">Atla</a>
+                 <a href="<?php echo URL . 'report/r/2/' . $question->question_id; ?>" class="btn btn-raised btn-danger pull-right">Rapor Et</a>
+                 </div>
                 <?php } else { 
                   if(isset($_GET["sonucgoster"])){
                     $sonusgoster = htmlspecialchars($_GET["sonucgoster"]);
