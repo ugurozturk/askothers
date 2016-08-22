@@ -19,7 +19,7 @@
   <!-- Bootstrap Material Design -->
   <link rel="stylesheet" type="text/css" href="<?php echo URL . 'bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.css' ?>">
   <link rel="stylesheet" type="text/css" href="<?php echo URL . 'bower_components/bootstrap-material-design/dist/css/ripples.min.css' ?>">
-  
+  <script>var url = "<?php echo URL; ?>" </script>
    <!-- MetisMenu CSS -->
     <link href="<?php echo URL . '/bower_components/metisMenu/dist/metisMenu.min.css ' ?>" rel="stylesheet">
 <!-- Stlye -->
@@ -275,14 +275,17 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
+                        <form action="<?php echo URL . "search/s" ?>" method="get">
                             <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
+                                <input type="text" class="form-control" placeholder="Search..." name="araTxt">
                                 <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
+                                <button class="btn btn-default" type="submit">
                                     <i class="fa fa-search"></i>
                                 </button>
-                            </span>
+                                </span>
+                          
                             </div>
+                              </form>
                             <!-- /input-group -->
                         </li>
                         <li>

@@ -60,7 +60,20 @@ $('#loginBtnid').click(function(){
     });
     
 });
-
+/*
+$('[name="aramabtn"]').click(function(){
+    $.ajax({
+        type: "POST",
+        url: url + "search/s/deneme",
+        data: {
+            veri: "veri"
+        },
+        dataType: "json",
+        done: function(){
+            console.log("bitti");
+        }
+    });
+});*/
 
 
 $('#sorugonderbtn').click(function(){

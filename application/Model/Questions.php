@@ -63,6 +63,22 @@ class Questions extends Model
         return $query->fetch();
     }
 
+    public function getQuestionsBySearch($aranan)
+    {
+        $sql = "SELECT q.question_id, q.question_detail, Count(pov.poll_option_id) as cevapsayisi
+                FROM questions as q
+                INNER JOIN poll_option as po on q.question_id = po.question_id
+                INNER JOIN poll_option_votes as pov on po.poll_option_id = pov.poll_option_id
+                WHERE q.question_detail like :aranan
+                Group BY po.question_id
+                Order BY q.created_date DESC";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':aranan' => "%". $aranan . "%");
+        $query->execute($parameters);
+
+        return $query->fetchAll();
+    }
+
     public function getQuestionsTop5()
     {
         $sql = "SELECT question_id, user_id, question_detail, language_id, points, active, created_date FROM questions WHERE points != 0 Order By points DESC LIMIT 5";
