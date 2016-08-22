@@ -55,7 +55,7 @@ define('URL', URL_PROTOCOL . URL_DOMAIN . URL_SUB_FOLDER);
  */
 define('DB_TYPE', 'mysql');
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'askothersdb');
-define('DB_USER', 'root');
-define('DB_PASS', '');
+define('DB_NAME', 'askother_udb');
+define('DB_USER', 'askother_udbu');
+define('DB_PASS', '3mwDqfoXRwTH');
 define('DB_CHARSET', 'utf8');

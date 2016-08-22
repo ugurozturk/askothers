@@ -6,7 +6,7 @@ use Mini\Model\UserType;
 use Mini\Model\User;
 use Mini\Model\Log;
 use Mini\Model\UserActivate;
-use Mini\libs\PHPMailer;
+use Mini\Libs\PHPMailer;
 
 class RegisterController
 {
@@ -36,13 +36,12 @@ class RegisterController
 
 			$generatedKey = sha1(mt_rand(10000,99999).time().$email);	
 
-			$mail->setFrom('testmail@uozturk.com', 'Test Mail');
+			$mail->setFrom('testmail@uozturk.com', 'Ask Others');
 			$mail->addAddress($email);  // Add a recipient
 			$mail->isHTML(true);                                  			// Set email format to HTML
 
-			$mail->Subject = 'Gmail smtp test';
-			$mail->Body    = '<a href="'.URL.'profile/activate/'.$username . "-" .$generatedKey.'">Aktivasyon için tıklayınız.<a/>';
-			$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+			$mail->Subject = 'Aktivasyon Maili';
+			$mail->Body    = '<a href="http://askothers.net/profile/activate/'.$username . "-" .$generatedKey.'">Aktivasyon için tıklayınız.<a/>';
 
 			if(!$mail->send()) {
 				$log = new Log;
