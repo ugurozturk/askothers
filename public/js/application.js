@@ -62,6 +62,7 @@ $('#loginBtnid').click(function(){
 });
 
 $('#registerBtnid').click(function(){
+    console.log("buton click işe yaradı");
     if ($('[name="sartlarChcBox"]').is(':checked')) {
 
         if ($('[name="username"]').val().length < 4) {
@@ -142,6 +143,7 @@ $('#registerBtnid').click(function(){
     });
 }
 else{
+    console.log("kullanım şartları seçilmedi");
      var n = noty({
                 text: 'Kayıt olabilmek için öncelikle sitemizin kullanım şartlarını okuyup, onaylamanız gerekmektedir.',
                 layout: 'topRight',

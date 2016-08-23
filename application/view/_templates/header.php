@@ -48,7 +48,7 @@
 
             <ul class="nav navbar-top-links navbar-right pull-right">
                 <li>
-                    <a class="dropdown-toggle" href="<?php echo URL . "home/learn"; ?>">
+                    <a class="dropdown-toggle" href="<?php echo URL . "newquestion/learn"; ?>">
                         <i class="fa fa-question-circle fa-fw gri"></i>
                     </a>
                 </li>
