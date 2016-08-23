@@ -16,7 +16,9 @@ class RegisterController
     }
 
     public function kayit(){
-    	if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST' && isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["password"])){
+		$adres = URL;
+
+    	if (isset($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], $adres) && strtoupper($_SERVER['REQUEST_METHOD']) == 'POST' && isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["password"])){
     		$username = htmlspecialchars($_POST["username"]);
 			$email = htmlspecialchars($_POST["email"]);
 			$password = htmlspecialchars($_POST["password"]);
