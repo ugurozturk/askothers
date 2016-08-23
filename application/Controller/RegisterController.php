@@ -16,12 +16,24 @@ class RegisterController
     }
 
     public function kayit(){
-    	if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST'){
+    	if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST' && isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["password"])){
     		$username = htmlspecialchars($_POST["username"]);
 			$email = htmlspecialchars($_POST["email"]);
 			$password = htmlspecialchars($_POST["password"]);
 
 			$user = new User();
+			$usernameCheck = $user->getUserFromUsername($username);
+			if ($usernameCheck) {
+				echo json_encode("Hata2");
+				return;
+			}
+			$emailCheck = $user->getUserByMail($email); 
+			if ($emailCheck){
+				echo json_encode("Hata3");
+				return;
+			}
+
+
 			$user->addUser(5, 0, $username, $password, $email, 0, 0);
 
 			$mail = new PHPMailer;
@@ -55,6 +67,6 @@ class RegisterController
 				$useractivate->addUserActivate($userobj->user_id, $generatedKey);
 			}
     	}
-    	header('location:' . URL);
+		echo json_encode("basarili");
     }
 }

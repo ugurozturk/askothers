@@ -60,6 +60,100 @@ $('#loginBtnid').click(function(){
     });
     
 });
+
+$('#registerBtnid').click(function(){
+    if ($('[name="sartlarChcBox"]').is(':checked')) {
+
+        if ($('[name="username"]').val().length < 4) {
+            var n = noty({
+                text: 'Username 3 Karakterden Büyük Olmalı',
+                layout: 'topRight',
+                type: 'error',
+                animation: {
+                    open: 'animated bounceIn', // Animate.css class names
+                    close: 'animated bounceOut', // Animate.css class names
+                }
+                });
+                return false;
+        }else if($('[name="password"]').val().length < 6) {
+            var n = noty({
+                text: 'Şifre 5 Karakterden büyük olmalı',
+                layout: 'topRight',
+                type: 'error',
+                animation: {
+                    open: 'animated bounceIn', // Animate.css class names
+                    close: 'animated bounceOut', // Animate.css class names
+                }
+                });
+                return false;
+        }
+
+    $.ajax({
+        type: "POST",
+        url: url + "register/kayit",
+        data: {
+            username: $('[name="username"]').val(),
+            email: $('[name="email"]').val(),
+            password: $('[name="password"]').val()
+        },
+        dataType: "json",
+        error: function(){
+            console.log("Error çalıştı");
+        },
+        success: function(sonuc){
+            if(sonuc == "Hata2"){
+                var n = noty({
+                text: 'Girilen Kullanıcı adı daha önceden kullanılmış',
+                layout: 'topRight',
+                type: 'error',
+                animation: {
+                    open: 'animated bounceIn', // Animate.css class names
+                    close: 'animated bounceOut', // Animate.css class names
+                }
+                });
+            }
+            else if(sonuc == "Hata3"){
+                 var n = noty({
+                text: 'Girilen Email daha önceden kullanılmış',
+                layout: 'topRight',
+                type: 'error',
+                animation: {
+                    open: 'animated bounceIn', // Animate.css class names
+                    close: 'animated bounceOut', // Animate.css class names
+                }
+                });
+            }
+            else if(sonuc == "basarili"){
+                var n = noty({
+                text: 'Kayıt işlemi başarılı. Lütfen Mail adresini kontrol ederek aktivasyonu yapınız.',
+                layout: 'top',
+                type: 'success',
+                animation: {
+                    open: 'animated bounceIn', // Animate.css class names
+                    close: 'animated bounceOut', // Animate.css class names
+                }
+                });
+              setTimeout(function(){  window.location.href = url; }, 6000); 
+            }
+        },
+        done: function(){
+            console.log("ajax post bitti");
+        }
+    });
+}
+else{
+     var n = noty({
+                text: 'Kayıt olabilmek için öncelikle sitemizin kullanım şartlarını okuyup, onaylamanız gerekmektedir.',
+                layout: 'topRight',
+                type: 'error',
+                animation: {
+                    open: 'animated bounceIn', // Animate.css class names
+                    close: 'animated bounceOut', // Animate.css class names
+                }
+                });
+}
+});
+
 /*
 $('[name="aramabtn"]').click(function(){
     $.ajax({

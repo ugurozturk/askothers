@@ -29,4 +29,8 @@ class HomeController
         require APP . 'view/_templates/footer.php';
 
     }
+
+    public function sartlar(){
+        require APP . 'view/home/sartlar.php';
+    }
 }
