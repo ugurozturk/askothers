@@ -61,11 +61,13 @@ $('#loginBtnid').click(function(){
     
 });
 
+
 $('#registerBtnid').click(function(){
-    console.log("buton click işe yaradı");
+$('#registerBtnid').attr( "disabled", "disabled" );
     if ($('[name="sartlarChcBox"]').is(':checked')) {
 
         if ($('[name="username"]').val().length < 4) {
+            $('#registerBtnid').removeAttr( "disabled");
             var n = noty({
                 text: 'Username 3 Karakterden Büyük Olmalı',
                 layout: 'topRight',
@@ -77,6 +79,7 @@ $('#registerBtnid').click(function(){
                 });
                 return false;
         }else if($('[name="password"]').val().length < 6) {
+            $('#registerBtnid').removeAttr( "disabled");
             var n = noty({
                 text: 'Şifre 5 Karakterden büyük olmalı',
                 layout: 'topRight',
@@ -102,6 +105,7 @@ $('#registerBtnid').click(function(){
             console.log("Error çalıştı");
         },
         success: function(sonuc){
+            $('#registerBtnid').removeAttr( "disabled");
             if(sonuc == "Hata2"){
                 var n = noty({
                 text: 'Girilen Kullanıcı adı daha önceden kullanılmış',
@@ -114,6 +118,7 @@ $('#registerBtnid').click(function(){
                 });
             }
             else if(sonuc == "Hata3"){
+                $('#registerBtnid').removeAttr( "disabled");
                  var n = noty({
                 text: 'Girilen Email daha önceden kullanılmış',
                 layout: 'topRight',
@@ -143,6 +148,7 @@ $('#registerBtnid').click(function(){
     });
 }
 else{
+    $('#registerBtnid').removeAttr( "disabled");
     console.log("kullanım şartları seçilmedi");
      var n = noty({
                 text: 'Kayıt olabilmek için öncelikle sitemizin kullanım şartlarını okuyup, onaylamanız gerekmektedir.',
@@ -227,3 +233,28 @@ $(function() {
         });
     }
 });
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '650475058437271',
+      xfbml      : true,
+      version    : 'v2.7'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42442811-10', 'auto');
+  ga('send', 'pageview');
+
