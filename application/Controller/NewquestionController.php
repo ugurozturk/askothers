@@ -5,6 +5,7 @@ namespace Mini\Controller;
 use Mini\Model\Questions;
 use Mini\Model\PollOption;
 use Mini\Model\PollOptionVotes;
+use Mini\Model\User;
 
 class NewquestionController
 {
@@ -29,6 +30,10 @@ class NewquestionController
                 }
               }
             }
+            $points = new Points();
+            $point = $points->getPointsFromDetail("Soru Gönderdi");
+            $userModel = new User;
+            $userModel->puanEkleUser($user_id, $point->point_value);
           }
           else {
             echo "Soru başlığı yeterli uzunlukta değil";

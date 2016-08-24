@@ -22,6 +22,14 @@
   <script>var url = "<?php echo URL; ?>" </script>
    <!-- MetisMenu CSS -->
     <link href="<?php echo URL . '/bower_components/metisMenu/dist/metisMenu.min.css ' ?>" rel="stylesheet">
+    
+    <!-- DataTables -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedcolumns/3.2.2/css/fixedColumns.bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.1.0/css/responsive.bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/scroller/1.4.2/css/scroller.bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/1.2.0/css/select.bootstrap.min.css"/>
+ 
 <!-- Stlye -->
   <link rel="stylesheet" type="text/css" href="<?php echo URL . 'css/style.css' ?>">
  <!-- Custom CSS -->

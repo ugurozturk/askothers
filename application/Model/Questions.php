@@ -130,11 +130,11 @@ class Questions extends Model
         $query->execute($parameters);
     }
 
-    public function updateQuestions($question_id, $user_id, $question_detail, $language_id, $points, $active, $created_date)
+    public function updateQuestions($question_id, $user_id, $question_detail, $language_id, $points, $active)
     {
-        $sql = "UPDATE questions SET user_id = :user_id, question_detail = :question_detail, language_id = :language_id, points = :points, active = :active, created_date = :created_date WHERE question_id = :question_id";
+        $sql = "UPDATE questions SET user_id = :user_id, question_detail = :question_detail, language_id = :language_id, points = :points, active = :active WHERE question_id = :question_id";
         $query = $this->db->prepare($sql);
-        $parameters = array(':question_id' => $question_id, ':user_id' => $user_id, ':question_detail' => $question_detail, ':language_id' => $language_id, ':points' => $points, ':active' => $active, ':created_date' => $created_date);
+        $parameters = array(':question_id' => $question_id, ':user_id' => $user_id, ':question_detail' => $question_detail, ':language_id' => $language_id, ':points' => $points, ':active' => $active);
 
         $query->execute($parameters);
     }
