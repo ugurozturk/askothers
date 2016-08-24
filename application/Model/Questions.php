@@ -158,7 +158,7 @@ class Questions extends Model
     }
     public function getAmountOfQuestionsLast24h()
     {
-        $sql = "SELECT COUNT(question_id) AS amount_of_questions FROM questions WHERE created_date >= CURDATE() - INTERVAL 1 DAY";
+        $sql = "SELECT COUNT(question_id) AS amount_of_questions FROM questions WHERE created_date >= NOW() - INTERVAL 1 DAY";
         $query = $this->db->prepare($sql);
         $query->execute();
 

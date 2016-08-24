@@ -130,7 +130,7 @@ class User extends Model
 
     public function getAmountOfUserLast24h()
     {
-        $sql = "SELECT COUNT(user_id) AS amount_of_user FROM user Where created_date >= CURDATE() - INTERVAL 1 DAY ";
+        $sql = "SELECT COUNT(user_id) AS amount_of_user FROM user Where created_date >= NOW() - INTERVAL 1 DAY ";
         $query = $this->db->prepare($sql);
         $query->execute();
 

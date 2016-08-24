@@ -7,5 +7,5 @@
         <h5><?php echo "Son 24 saat toplam cevap sayısı : " . $cevapSayisiBugun; ?></h5>
         <br />
         <a href="<?php echo URL . "yonet/kullanicilar" ?>" class="btn btn-raised btn-primary">Kullanıcı Kontrolü</a>
-        <a href="<?php echo URL . "yonet/kullanicilar" ?>" class="btn btn-raised btn-primary">Questions Kontrolü</a>
+        <a href="<?php echo URL . "yonet/sorular" ?>" class="btn btn-raised btn-primary">Questions Kontrolü</a>
 </div>

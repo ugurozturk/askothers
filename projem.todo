@@ -9,15 +9,16 @@ Kodlanacak:
   ☐ Google+ ile giriş yapılabilir olsun.
   ☐ Guest sistemini yap
   ☐ Soru gönderme yerine resim ekleme yap
+  ☐ Şifreleri md5 le
   ✔ Aynı kullanıcı adında ve mail adresiyle 1 kişi kayıt olabilsin. 23.08.2016 01:46:25 @done 23.08.2016 12:49:50
   ☐ 1 Kişi 1 şeyi 1 kez report edebilir olsun
   ✔ Kullanım Şartlarını ekle @done 24.08.2016 03:47:08
   ☐ Şifremi unuttum mantığını getir
   ✔ Soru sorduğunda 10 puan eklet @done 24.08.2016 03:46:46
   ☐ Yonetici sayfasını yap.
-    ☐ Soruları Görüntüle
+    ✔ Soruları Görüntüle @done 24.08.2016 19:28:52
     ☐ Sorularda arama yap
-    ☐ Kullanıcıları Görüntüle
+    ✔ Kullanıcıları Görüntüle @done 24.08.2016 19:28:56
     ☐ Kullanıcılarda arama yap
   ✔ Skip özelliğini aktif et. @done
   ✔ Top 5 Sorular ve Kullanıcılar linklerini aktif et @done
@@ -29,7 +30,7 @@ Kodlanacak:
   ✔ Kayıtta email aktivasyonunu entegre et. @done 20.08.2016 16:38:53
   ✔ Kullanıcı gönderdiği soruları görebileceği liste olsun. @created(16-08-11 15:37) @done 20.08.2016 16:39:06
   ☐ Soru göndermede karakter limitini göster.
-  ☐ Mobile de sağ taraf da ki register ve login kayık oluyor.
+  ✔ Mobile de sağ taraf da ki register ve login kayık oluyor. @done
   ☐ Üyelik aktivasyonunda otomatik giriş yapılmış olsun.
   ✘ Üye olunduktan sonra otomatik giriş yapılmış olsun. @cancelled 20.08.2016 16:40:44
   ✔ Cevaplanma sayısının devamını getir .\userQuestionList.php"#bf8b11" @done 20.08.2016 17:20:21

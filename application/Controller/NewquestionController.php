@@ -5,6 +5,7 @@ namespace Mini\Controller;
 use Mini\Model\Questions;
 use Mini\Model\PollOption;
 use Mini\Model\PollOptionVotes;
+use Mini\Model\Points;
 use Mini\Model\User;
 
 class NewquestionController
