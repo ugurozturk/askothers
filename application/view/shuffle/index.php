@@ -47,7 +47,6 @@
                  <a href="<?php echo URL . 'shuffle/skip/' . $question->question_id; ?>" class="btn btn-raised btn-primary pull-left">Atla</a>
                  <a href="<?php echo URL . 'report/r/2/' . $question->question_id; ?>" class="btn btn-raised btn-danger pull-right">Rapor Et</a>
                  </div>
-                 <div class="fb-like" data-share="true" data-width="450" data-show-faces="true"></div>
                 <?php } else { 
                   if(isset($_GET["sonucgoster"])){
                     $sonusgoster = htmlspecialchars($_GET["sonucgoster"]);

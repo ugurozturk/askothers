@@ -78,12 +78,12 @@ class YonetController
         $adres = URL;
        if (isset($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], $adres) && strtoupper($_SERVER['REQUEST_METHOD']) == 'POST'  && isset($_POST["questionid"]))
        {
-            $questionid = $_POST["questionid"];
-            $user_id = $_POST["user_id"];
-            $question_detail = $_POST["question_detail"];
-            $language_id = $_POST["language_id"];
-            $points = $_POST["points"];
-            $active = $_POST["active"];
+            $questionid = htmlspecialchars($_POST["questionid"]);
+            $user_id = htmlspecialchars($_POST["user_id"]);
+            $question_detail = htmlspecialchars($_POST["question_detail"]);
+            $language_id = htmlspecialchars($_POST["language_id"]);
+            $points = htmlspecialchars($_POST["points"]);
+            $active = htmlspecialchars($_POST["active"]);
 
             $questionModel = new Questions;
             $questionModel->updateQuestions($questionid, $user_id, $question_detail, $language_id, $points, $active);
@@ -134,13 +134,13 @@ class YonetController
         $adres = URL;
        if (isset($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], $adres) && strtoupper($_SERVER['REQUEST_METHOD']) == 'POST'  && isset($_POST["userid"]))
        {
-            $userid = $_POST["userid"];
-            $username = $_POST["username"];
-            $password = $_POST["password"];
-            $email = $_POST["email"];
-            $phone = $_POST["phone"];
-            $aktif = $_POST["aktif"];
-            $points = $_POST["points"];
+            $userid = htmlspecialchars($_POST["userid"]);
+            $username = htmlspecialchars($_POST["username"]);
+            $password = md5(htmlspecialchars($_POST["password"]));
+            $email = htmlspecialchars($_POST["email"]);
+            $phone = htmlspecialchars($_POST["phone"]);
+            $aktif = htmlspecialchars($_POST["aktif"]);
+            $points = htmlspecialchars($_POST["points"]);
 
             $userModel = new User;
             $userModel->updateUser($userid, $points, $username, $password, $email, $phone, $aktif);

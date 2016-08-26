@@ -21,7 +21,7 @@ class RegisterController
     	if (isset($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], $adres) && strtoupper($_SERVER['REQUEST_METHOD']) == 'POST' && isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["password"])){
     		$username = htmlspecialchars($_POST["username"]);
 			$email = htmlspecialchars($_POST["email"]);
-			$password = htmlspecialchars($_POST["password"]);
+			$password = md5(htmlspecialchars($_POST["password"]));
 
 			$user = new User();
 			$usernameCheck = $user->getUserFromUsername($username);

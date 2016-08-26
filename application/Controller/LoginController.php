@@ -18,7 +18,7 @@ class LoginController
         $adres = URL;
        if (isset($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], $adres) && strtoupper($_SERVER['REQUEST_METHOD']) == 'POST'  && isset($_POST["email"]) && isset($_POST["password"])){
 		$email = htmlspecialchars($_POST["email"]);
-		$sifre = htmlspecialchars($_POST["password"]);
+		$sifre = md5(htmlspecialchars($_POST["password"]));
 
     	$user = new User();
     	$userVeri = $user->getUserByMailAndPw($email,$sifre);
