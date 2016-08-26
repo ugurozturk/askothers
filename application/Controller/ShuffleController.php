@@ -98,6 +98,10 @@ class ShuffleController
             
             $questionSkip = new QuestionsSkip;
             $questionSkip->addQuestionsSkip($q_id, $user_id, date('Y-m-d', strtotime("+7 days")));
+            $userModel = new User;
+            $pointModel = new Points();
+            $point = $points->getPointsFromDetail("Soru Atladı");
+            $userModel->puanEkleUser($user_id, $pointModel->point_value);
 
             header('location:' . URL . 'shuffle');
         }
