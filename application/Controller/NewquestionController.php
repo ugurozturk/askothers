@@ -17,9 +17,11 @@ class NewquestionController
         if (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST'){
           $questiondetail =  htmlspecialchars($_POST["questiondetail"]);
           $user_id = $_SESSION["user_id"];
+          $userModel = new User;
           $checkedpoll =substr(htmlspecialchars($_POST["optionsRadios"]),7);
           if($questiondetail != "" && strlen($questiondetail) > 5){
-            $lastinsertedqid = $questions->addQuestions($user_id, $questiondetail, 1, 1);
+            $user = $userModel->getUser($user_id);
+            $lastinsertedqid = $questions->addQuestions($user_id, $questiondetail, 1, $user->points, 1);
 
             $polloption = new PollOption();
             foreach ($_POST["anketsorusu"] as $key => $value) {
@@ -33,7 +35,6 @@ class NewquestionController
             }
             $points = new Points();
             $point = $points->getPointsFromDetail("Soru Gönderdi");
-            $userModel = new User;
             $userModel->puanEkleUser($user_id, $point->point_value);
           }
           else {

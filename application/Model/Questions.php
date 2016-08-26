@@ -111,11 +111,11 @@ class Questions extends Model
         return $query->fetchAll();
     }
 
-    public function addQuestions($user_id, $question_detail, $language_id, $active)
+    public function addQuestions($user_id, $question_detail, $language_id, $points, $active)
     {
-        $sql = "INSERT INTO questions (user_id,question_detail,language_id,active) VALUES (:user_id, :question_detail, :language_id, :active)";
+        $sql = "INSERT INTO questions (user_id,question_detail,language_id,points,active) VALUES (:user_id, :question_detail, :language_id, :points, :active)";
         $query = $this->db->prepare($sql);
-        $parameters = array(':user_id' => $user_id, ':question_detail' => $question_detail, ':language_id' => $language_id, ':active' => $active);
+        $parameters = array(':user_id' => $user_id, ':question_detail' => $question_detail, ':language_id' => $language_id, ':points' => $points, ':active' => $active);
 
         $query->execute($parameters);
         return $this->db->lastInsertId();
