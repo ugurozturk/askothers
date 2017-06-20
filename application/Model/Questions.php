@@ -103,7 +103,7 @@ class Questions extends Model
                     From questions_skip as qs
                     WHERE qs.user_id = :user_id AND qs.skipped_date > NOW()
                 )
-                Order By points DESC LIMIT 3";
+                Order By Rand() * -points LIMIT 3";
         $query = $this->db->prepare($sql);
          $parameters = array(':user_id' => $user_id);
         $query->execute($parameters);
